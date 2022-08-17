@@ -7,4 +7,14 @@
     <string name="insira_o_valor_do_sal_rio_bruto">Insira o valor do salário bruto</string>
     <string name="insira_o_valor_de_pens_o_aliment_cia">Insira o valor de pensão alimentícia:</string>
     <string name="insira_o_n_de_dependentes">Insira o nº de dependentes</string>
+    <string name="sal_rio_l_quido">Salário Líquido:</string>
+    <string name="textview">TextView</string>
+    <string name="resultado_sal_rio_bruto">Resultado Salário Bruto</string>
+    <string name="irpf">IRPF</string>
+    <string name="plano_de_sa_de">Plano de saúde:</string>
+    <string name="simular_novamente">Simular novamente</string>
+    <string name="descontos">Descontos</string>
+    <string name="total">Total</string>
+    <string name="proventos">Proventos</string>
+    <string name="inss">INSS</string>
 </resources>

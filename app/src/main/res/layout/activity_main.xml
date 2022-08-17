@@ -9,6 +9,7 @@
     android:padding="10dp"
     tools:context=".MainActivity">
 
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="320dp"
@@ -31,6 +32,7 @@
                 android:id="@+id/tvSalary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans"
                 android:padding="5dp"
                 android:text="@string/sal_rio_bruto"
                 android:textColor="#EEEEEE"
@@ -48,12 +50,14 @@
                 android:hint="@string/insira_o_valor_do_sal_rio_bruto"
                 android:inputType="numberDecimal"
                 android:padding="10dp"
-                android:textColorHint="?android:attr/textColorHint" />
+                android:textColorHint="?android:attr/textColorHint"
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/tvDependents"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans"
                 android:padding="5dp"
                 android:text="@string/n_de_dependentes"
                 android:textColor="#EEEEEE"
@@ -65,17 +69,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
+                android:autofillHints=""
                 android:backgroundTint="#E9E9E9"
-                android:hint="@string/insira_o_n_de_dependentes"
                 android:ems="10"
-                android:padding="10dp"
+                android:hint="@string/insira_o_n_de_dependentes"
                 android:inputType="number"
-                android:autofillHints="" />
+                android:padding="10dp"
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/tvAlimony"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans"
                 android:padding="5dp"
                 android:text="@string/pens_o_aliment_cia"
                 android:textColor="#EEEEEE"
@@ -87,17 +93,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
+                android:autofillHints=""
                 android:backgroundTint="#E9E9E9"
-                android:hint="@string/insira_o_valor_de_pens_o_aliment_cia"
                 android:ems="10"
+                android:hint="@string/insira_o_valor_de_pens_o_aliment_cia"
                 android:inputType="numberDecimal"
                 android:padding="10dp"
-                android:autofillHints="" />
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/tvOthers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans"
                 android:padding="5dp"
                 android:text="@string/outros_descontos"
                 android:textColor="#EEEEEE"
@@ -109,18 +117,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:autofillHints=""
                 android:backgroundTint="#E9E9E9"
-                android:hint="@string/insira_o_valor_de_outros_descontos"
                 android:ems="10"
+                android:hint="@string/insira_o_valor_de_outros_descontos"
                 android:inputType="numberDecimal"
                 android:padding="10dp"
-                android:autofillHints="" />
+                tools:ignore="TextContrastCheck" />
 
             <Button
-                android:id="@+id/btCalculate"
+                android:id="@+id/btNewSimulate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FF7A00"
+                android:fontFamily="@font/nunito_sans"
                 android:text="@string/calcular"
                 android:textColor="#4C1F02"
                 android:textStyle="bold"
