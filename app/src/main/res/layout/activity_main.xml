@@ -1,18 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="320dp"
+        android:layout_height="139dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/logo_of_a_drawing_of_a_person_with_money"
+        app:srcCompat="@drawable/logomoney" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvSalary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/sal_rio_bruto"
+                android:textColor="#EEEEEE"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etSalary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:autofillHints=""
+                android:backgroundTint="#E9E9E9"
+                android:ems="10"
+                android:hint="@string/insira_o_valor_do_sal_rio_bruto"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:textColorHint="?android:attr/textColorHint" />
+
+            <TextView
+                android:id="@+id/tvDependents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/n_de_dependentes"
+                android:textColor="#EEEEEE"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etDependents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:backgroundTint="#E9E9E9"
+                android:hint="@string/insira_o_n_de_dependentes"
+                android:ems="10"
+                android:padding="10dp"
+                android:inputType="number"
+                android:autofillHints="" />
+
+            <TextView
+                android:id="@+id/tvAlimony"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/pens_o_aliment_cia"
+                android:textColor="#EEEEEE"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etAlimony"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:backgroundTint="#E9E9E9"
+                android:hint="@string/insira_o_valor_de_pens_o_aliment_cia"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:autofillHints="" />
+
+            <TextView
+                android:id="@+id/tvOthers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/outros_descontos"
+                android:textColor="#EEEEEE"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etOthers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#E9E9E9"
+                android:hint="@string/insira_o_valor_de_outros_descontos"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:autofillHints="" />
+
+            <Button
+                android:id="@+id/btCalculate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF7A00"
+                android:text="@string/calcular"
+                android:textColor="#4C1F02"
+                android:textStyle="bold"
+                app:iconTint="#9E9D24" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

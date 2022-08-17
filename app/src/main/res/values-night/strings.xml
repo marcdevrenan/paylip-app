@@ -1,13 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PaylipApp</string>
-    <string name="logo_of_a_drawing_of_a_person_with_money">logo of a drawing of a person with money</string>
     <string name="sal_rio_bruto">Salário Bruto:</string>
-    <string name="n_de_dependentes">Nº de dependentes</string>
     <string name="pens_o_aliment_cia">Pensão alimentícia:</string>
     <string name="outros_descontos">Outros descontos:</string>
     <string name="calcular">Calcular</string>
     <string name="insira_o_valor_do_sal_rio_bruto">Insira o valor do salário bruto</string>
     <string name="insira_o_valor_de_pens_o_aliment_cia">Insira o valor de pensão alimentícia:</string>
-    <string name="insira_o_valor_de_outros_descontos">Insira o valor de outros descontos:</string>
     <string name="insira_o_n_de_dependentes">Insira o nº de dependentes</string>
 </resources>
