@@ -12,24 +12,30 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btCalculate = findViewById<Button>(R.id.btNewSimulate)
-        val etSalary = findViewById<EditText>(R.id.etSalary)
-        val etDependents = findViewById<EditText>(R.id.etDependents)
-        val etAlimony = findViewById<EditText>(R.id.etAlimony)
-        val etOthers = findViewById<EditText>(R.id.etOthers)
+        val etSalary = findViewById<EditText>(R.id.etSalary).toString()
+        val etDependents = findViewById<EditText>(R.id.etDependents).toString()
+        val etAlimony = findViewById<EditText>(R.id.etAlimony).toString()
+        val etOthers = findViewById<EditText>(R.id.etOthers).toString()
 
 
 
         btCalculate.setOnClickListener {
-            if(etSalary.text.isNotBlank()) {
+            if(etSalary.isNotBlank()) {
                 val intent = Intent(this, ResultAcitivity::class.java)
+                intent.putExtra("etSalary",etSalary)
+                intent.putExtra("etDependents",etDependents)
+                intent.putExtra("etAlimony",etAlimony)
+                intent.putExtra("etOthers",etOthers)
 
                 startActivity(intent)
 
             }else{
-                etSalary.error = getString(R.string.insira_o_valor_do_sal_rio_bruto)
-
+                getString(R.string.insira_o_valor_do_sal_rio_bruto)
             }
+
         }
+
+
     }
 
 
