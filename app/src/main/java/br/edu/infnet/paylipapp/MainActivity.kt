@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
 
             } else {
-                getString(R.string.insira_o_valor_do_sal_rio_bruto)
+                 getString(R.string.insira_o_valor_do_sal_rio_bruto)
             }
         }
     }
