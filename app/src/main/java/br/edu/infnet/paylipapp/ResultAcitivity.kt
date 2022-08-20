@@ -43,13 +43,13 @@ class ResultAcitivity : AppCompatActivity() {
         tvResultSalaryBrut.text= etSalary
 
         if (etSalaryQuant <= 1659.38){
-            inss = etSalaryQuant*(8/100)
+            inss = etSalaryQuant*(0.08)
         }
         if ((etSalaryQuant> 1659.38) && (etSalaryQuant <= 2765.66)){
-            inss = etSalaryQuant*(9/100)
+            inss = etSalaryQuant*(0.09)
         }
         if ((etSalaryQuant> 2765.66) && (etSalaryQuant <= 5531.31)){
-            inss = etSalaryQuant*(11/100)
+            inss = etSalaryQuant*(0.11)
         }
         if (etSalaryQuant >= 5531.31){
             inss = 608.44
@@ -65,19 +65,19 @@ class ResultAcitivity : AppCompatActivity() {
 
         //3o irpf
         if (etSalaryQuant <= 1903.98){
-            irpf = etSalaryQuant*(0/100)
+            irpf = etSalaryQuant*(0)
         }
         if ((etSalaryQuant> 1903.98) && (etSalaryQuant <= 2826.65)){
-            irpf = etSalaryQuant*(7.5/100)
+            irpf = etSalaryQuant*(0.075)
         }
         if ((etSalaryQuant> 2765.65) && (etSalaryQuant <= 3751.05)){
-            irpf = etSalaryQuant*(15/100)
+            irpf = etSalaryQuant*(0.15)
         }
         if ((etSalaryQuant> 3751.06) && (etSalaryQuant <= 4664.68)){
-            irpf =etSalaryQuant*(22.5/100)
+            irpf =etSalaryQuant*(0.225)
         }
-        if ((etSalaryQuant> 4664.68) && (etSalaryQuant <= 4664.68)){
-            irpf = etSalaryQuant*(27.5/100)
+        if ((etSalaryQuant> 4664.68)){
+            irpf = etSalaryQuant*(0.275)
         }
         tvResultIrpf.text = irpf.toString()
 
@@ -88,7 +88,8 @@ class ResultAcitivity : AppCompatActivity() {
         //5o liquid
 
         val liquid = etSalaryQuant - inss - irpf - etAlimonyQuant- etDependentsQuant -etOthersQuant
-        tvLiquid.text = liquid.toString()
+        //tvLiquid.text = liquid.toString()
+        tvLiquid.text = "%.2f".format(liquid)
 
     }
 
