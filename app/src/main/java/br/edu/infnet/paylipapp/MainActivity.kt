@@ -12,20 +12,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btCalculate = findViewById<Button>(R.id.btNewSimulate)
-        val etSalary = findViewById<EditText>(R.id.etSalary).toString()
-        val etDependents = findViewById<EditText>(R.id.etDependents).toString()
-        val etAlimony = findViewById<EditText>(R.id.etAlimony).toString()
-        val etOthers = findViewById<EditText>(R.id.etOthers).toString()
+        val etSalary = findViewById<EditText>(R.id.etSalary)
+        val etDependents = findViewById<EditText>(R.id.etDependents)
+        val etAlimony = findViewById<EditText>(R.id.etAlimony)
+        val etOthers = findViewById<EditText>(R.id.etOthers)
 
 
 
         btCalculate.setOnClickListener {
-            if(etSalary.isNotBlank()) {
+            if(etSalary.toString().isNotBlank()) {
+
                 val intent = Intent(this, ResultAcitivity::class.java)
-                intent.putExtra("etSalary",etSalary)
-                intent.putExtra("etDependents",etDependents)
-                intent.putExtra("etAlimony",etAlimony)
-                intent.putExtra("etOthers",etOthers)
+                intent.putExtra("etSalary",etSalary.text.toString())
+                intent.putExtra("etDependents",etDependents.text.toString())
+                intent.putExtra("etAlimony",etAlimony.text.toString())
+                intent.putExtra("etOthers",etOthers.text.toString())
 
                 startActivity(intent)
 
