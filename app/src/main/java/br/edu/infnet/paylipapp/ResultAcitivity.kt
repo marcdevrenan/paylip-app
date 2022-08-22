@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import java.io.File
 
 class ResultAcitivity : AppCompatActivity() {
 
@@ -18,6 +20,11 @@ class ResultAcitivity : AppCompatActivity() {
         btNewSimulate.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+        }
+
+        val btDelete : TextView = findViewById<Button>(R.id.btDelete)
+        btDelete.setOnClickListener {
+            deletar()
         }
     }
 
@@ -91,6 +98,17 @@ class ResultAcitivity : AppCompatActivity() {
         //tvLiquid.text = liquid.toString()
         tvLiquid.text = "%.2f".format(liquid)
 
+    }
+
+    fun deletar(){
+        val file = File("/data/data/br.edu.infnet.paylipapp/files/dados-usuario.txt")
+
+        val result = file.delete()
+        if (result) {
+            Toast.makeText(this, "Deletado", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+        }
     }
 
 
