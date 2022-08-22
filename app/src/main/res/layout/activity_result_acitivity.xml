@@ -278,5 +278,21 @@
         app:layout_constraintTop_toBottomOf="@+id/btNewSimulate"
         app:layout_constraintVertical_bias="0.052" />
 
+    <Button
+        android:id="@+id/btSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF7A00"
+        android:fontFamily="@font/nunito_sans"
+        android:text="@string/save"
+        android:textColor="#4C1F02"
+        android:textStyle="bold"
+        app:iconTint="#9E9D24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btDelete"
+        app:layout_constraintVertical_bias="0.052" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
