@@ -17,4 +17,6 @@
     <string name="total">Total</string>
     <string name="proventos">Proventos</string>
     <string name="inss">INSS</string>
+    <string name="delete">Deletar</string>
+    <string name="save">Salvar</string>
 </resources>
