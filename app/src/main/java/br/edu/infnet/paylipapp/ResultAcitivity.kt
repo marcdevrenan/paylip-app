@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -17,10 +18,19 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.android.gms.ads.*
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.android.gms.ads.rewarded.RewardedAd
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import java.io.*
 import java.util.*
 
 class ResultAcitivity : AppCompatActivity() {
+    //Anuncio somente ao clicar no botão salvar
+    private var _interstitialAd: InterstitialAd? = null
+    private var _bannerAd: AdView? = null
+
     private companion object{
         //PERMISSION request constant, assign any value
         private const val STORAGE_PERMISSION_CODE = 100
@@ -64,14 +74,47 @@ class ResultAcitivity : AppCompatActivity() {
             intent.putExtra("etOthers", others)
 
             if (checkPermission()){
-                Log.d(ResultAcitivity.TAG, "onCreate: Permission already granted, create folder")
+                Log.d(TAG, "onCreate: Permission already granted, create folder")
                 saveToFile(salary, dependents, alimony, others)
             }
             else{
-                Log.d(ResultAcitivity.TAG, "onCreate: Permission was not granted, request")
+                Log.d(TAG, "onCreate: Permission was not granted, request")
                 requestPermission()
             }
+
+            //inicia o banner e suas configurações para mostrar em tela
+            MobileAds.initialize(this)
+            loadInterstitial()
+            loadBannerAd()
+
         }
+
+    }
+
+    //carrega o tipo de anuncio
+    private fun loadInterstitial() {
+        val adRequest = AdRequest.Builder().build()
+        InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                _interstitialAd = null;
+            }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                _interstitialAd = interstitialAd
+            }
+        })
+    }
+
+    //carrega a propaganda
+    private fun loadBannerAd() {
+        _bannerAd = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        _bannerAd?.loadAd(adRequest)
+    }
+
+    //mostra o tipo de anuncio
+    fun showInterstitial(view: View) {
+        _interstitialAd?.show(this)
     }
 
     private fun liquidSalary(){
