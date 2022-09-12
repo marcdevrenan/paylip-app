@@ -167,24 +167,7 @@ class ResultAcitivity : AppCompatActivity() {
 
     }
 
-    fun calculateINSS(etSalary: Double): Double {
-        var inss = 0.0
-        val etSalaryQuant = etSalary
 
-        if (etSalaryQuant <= 1659.38){
-            inss = etSalaryQuant*(0.08)
-        }
-        if ((etSalaryQuant> 1659.38) && (etSalaryQuant <= 2765.66)){
-            inss = etSalaryQuant*(0.09)
-        }
-        if ((etSalaryQuant> 2765.66) && (etSalaryQuant <= 5531.31)){
-            inss = etSalaryQuant*(0.11)
-        }
-        if (etSalaryQuant >= 5531.31){
-            inss = 608.44
-        }
-        return inss;
-    }
 
     fun deletar(){
         val file = File("/data/data/br.edu.infnet.paylipapp/files/dadosUsuario.txt")
