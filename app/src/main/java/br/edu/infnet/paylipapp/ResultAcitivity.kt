@@ -21,8 +21,6 @@ import androidx.core.content.ContextCompat
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
-import com.google.android.gms.ads.rewarded.RewardedAd
-import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import java.io.*
 import java.util.*
 
@@ -96,7 +94,7 @@ class ResultAcitivity : AppCompatActivity() {
         val adRequest = AdRequest.Builder().build()
         InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
             override fun onAdFailedToLoad(adError: LoadAdError) {
-                _interstitialAd = null;
+                _interstitialAd = null
             }
 
             override fun onAdLoaded(interstitialAd: InterstitialAd) {
@@ -134,9 +132,44 @@ class ResultAcitivity : AppCompatActivity() {
         var inss = 0.0
         var irpf = 0.0
 
+        var calculate = Calculate()
+
         //1o calculate INSS
-        val etSalaryQuant = etSalary.toString().toDouble()
-        tvResultSalaryBrut.text= etSalary
+        inss = calculate.calculateINSS(etSalary.toString().toDouble())
+
+        tvResultInss.text = inss.toString()
+
+        //2o alimony
+        val etAlimonyQuant = etAlimony.toString().toDouble()
+        tvResultAlimony.text = etAlimony
+
+        val etOthersQuant = etOthers.toString().toDouble()
+        tvResultOthers.text = etOthers
+
+        //3o irpf
+        irpf = calculate.calculateIRPF(etSalary.toString().toDouble())
+
+        tvResultIrpf.text = irpf.toString()
+
+        //4o saúde
+        val etDependentsQuant = etDependents.toString().toDouble() * 189.59
+        tvResultHealthCare.text = etDependentsQuant.toString()
+
+        //5o liquid
+        var liquid = calculate.calculateLiquid(etSalary.toString().toDouble(),
+            inss,
+            irpf,
+            etAlimonyQuant,
+            etDependentsQuant,
+            etOthersQuant)
+        //tvLiquid.text = liquid.toString()
+        tvLiquid.text = "%.2f".format(liquid)
+
+    }
+
+    fun calculateINSS(etSalary: Double): Double {
+        var inss = 0.0
+        val etSalaryQuant = etSalary
 
         if (etSalaryQuant <= 1659.38){
             inss = etSalaryQuant*(0.08)
@@ -150,43 +183,7 @@ class ResultAcitivity : AppCompatActivity() {
         if (etSalaryQuant >= 5531.31){
             inss = 608.44
         }
-        tvResultInss.text = inss.toString()
-
-        //2o alimony
-        val etAlimonyQuant = etAlimony.toString().toDouble()
-        tvResultAlimony.text = etAlimony
-
-        val etOthersQuant = etOthers.toString().toDouble()
-        tvResultOthers.text = etOthers
-
-        //3o irpf
-        if (etSalaryQuant <= 1903.98){
-            irpf = etSalaryQuant*(0)
-        }
-        if ((etSalaryQuant> 1903.98) && (etSalaryQuant <= 2826.65)){
-            irpf = etSalaryQuant*(0.075)
-        }
-        if ((etSalaryQuant> 2765.65) && (etSalaryQuant <= 3751.05)){
-            irpf = etSalaryQuant*(0.15)
-        }
-        if ((etSalaryQuant> 3751.06) && (etSalaryQuant <= 4664.68)){
-            irpf =etSalaryQuant*(0.225)
-        }
-        if ((etSalaryQuant> 4664.68)){
-            irpf = etSalaryQuant*(0.275)
-        }
-        tvResultIrpf.text = irpf.toString()
-
-        //4o saúde
-        val etDependentsQuant = etDependents.toString().toDouble() * 189.59
-        tvResultHealthCare.text = etDependentsQuant.toString()
-
-        //5o liquid
-
-        val liquid = etSalaryQuant - inss - irpf - etAlimonyQuant- etDependentsQuant -etOthersQuant
-        //tvLiquid.text = liquid.toString()
-        tvLiquid.text = "%.2f".format(liquid)
-
+        return inss;
     }
 
     fun deletar(){
