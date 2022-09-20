@@ -2,12 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="br.edu.infnet.paylipapp">
-
-    <!--Permissions for the Android below 11 (R)-->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <!--Permission for the Android 11 (R) and above-->
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <!-- Permissions for the Android below 11 (R) -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Permission for the Android 11 (R) and above -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -20,12 +19,7 @@
         android:theme="@style/Theme.PaylipApp"
         tools:targetApi="31">
         <activity
-            android:name=".ResultAcitivity"
-            android:label="Salário Líquido"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:label="Paylip App"
+            android:name=".AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,18 +27,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ResultAcitivity"
+            android:exported="false"
+            android:label="Salário Líquido" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="Paylip App">
+
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
         <!--
         chamada ao google ads
-        Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
+        -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
-
+            android:value="ca-app-pub-3940256099942544~3347511713" />
     </application>
 
 </manifest>
