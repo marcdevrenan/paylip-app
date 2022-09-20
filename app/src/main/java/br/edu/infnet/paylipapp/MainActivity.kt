@@ -16,6 +16,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
 import java.io.*
 import java.util.*
 
@@ -51,6 +52,14 @@ class MainActivity : AppCompatActivity() {
                 getString(R.string.insira_o_valor_do_sal_rio_bruto)
             }
         }
+
+        val btLogout = findViewById<Button>(R.id.btLogout)
+        btLogout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, AuthActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
 }
