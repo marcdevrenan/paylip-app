@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "741712518410",
+    "project_id": "paylip-app-c5e3a",
+    "storage_bucket": "paylip-app-c5e3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741712518410:android:6fdcbf2803bd8817ba2ef3",
+        "android_client_info": {
+          "package_name": "br.edu.infnet.paylipapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "741712518410-18ofk3segn89ebn08sv1q1u7cnqqa01p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJGo6HaVmVlKRY5iVEsp4Kro1uKPE3JlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "741712518410-18ofk3segn89ebn08sv1q1u7cnqqa01p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
