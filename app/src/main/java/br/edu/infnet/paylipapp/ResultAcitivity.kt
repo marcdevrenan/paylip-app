@@ -21,6 +21,9 @@ import androidx.core.content.ContextCompat
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.io.*
 import java.util.*
 
@@ -28,6 +31,9 @@ class ResultAcitivity : AppCompatActivity() {
     //Anuncio somente ao clicar no botão salvar
     private var _interstitialAd: InterstitialAd? = null
     private var _bannerAd: AdView? = null
+
+    private val collection = "users"
+    private val db = Firebase.firestore
 
     private companion object{
         //PERMISSION request constant, assign any value
@@ -74,6 +80,7 @@ class ResultAcitivity : AppCompatActivity() {
             if (checkPermission()){
                 Log.d(TAG, "onCreate: Permission already granted, create folder")
                 saveToFile(salary, dependents, alimony, others)
+                saveToCloud(salary, dependents, alimony, others)
             }
             else{
                 Log.d(TAG, "onCreate: Permission was not granted, request")
@@ -204,7 +211,7 @@ class ResultAcitivity : AppCompatActivity() {
                 e.printStackTrace()
             }
 
-            Toast.makeText(this, "Salvo", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Dados salvos com sucesso em arquivo", Toast.LENGTH_SHORT).show()
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
         } catch (e: NumberFormatException) {
@@ -214,6 +221,27 @@ class ResultAcitivity : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    private fun saveToCloud(salary: String,dependents: String,alimony: String,others: String){
+        val user = User(
+            null,
+            salary,
+            dependents,
+            alimony,
+            others
+        )
+
+        if(user.id == null) {
+            val ref: DocumentReference = db.collection(collection).document()
+            user.id = ref.id
+            ref.set(user).addOnSuccessListener{
+                Toast.makeText(this, "Dados salvos com sucesso no bd", Toast.LENGTH_LONG).show()
+            }.addOnFailureListener{exception->
+                Toast.makeText(this,exception.message, Toast.LENGTH_LONG).show()
+            }
+        }
+
     }
 
     private fun requestPermission(){
