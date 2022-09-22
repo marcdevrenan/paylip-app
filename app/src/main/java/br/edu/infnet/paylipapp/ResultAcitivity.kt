@@ -139,6 +139,8 @@ class ResultAcitivity : AppCompatActivity() {
         var inss = 0.0
         var irpf = 0.0
 
+        tvResultSalaryBrut.text = etSalary.toString()
+
         var calculate = Calculate()
 
         //1o calculate INSS
